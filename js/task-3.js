@@ -1,11 +1,24 @@
-//Width of the element
-function getElementWidth(content, padding, border) {
-    const contentWidth = parseFloat(content);
-    const paddingWidth = parseFloat(padding);
-    const borderWidth = parseFloat(border);
-    return contentWidth + paddingWidth * 2 + borderWidth * 2;
+//Задача 3. Профіль гравця
+
+const profile = {
+    username: "Jacob",
+    playTime: 300,
+    changeUsername: function (newName) {
+        this.username = newName;
+    },
+    updatePlayTime: function (hours) {
+        this.playTime += hours;
+    },
+    getInfo: function () {
+        return `${this.username} has ${this.playTime} active hours!`
+    }
 }
 
-console.log(getElementWidth("50px", "8px", "4px")); // 74
-console.log(getElementWidth("60px", "12px", "8.5px")); // 101
-console.log(getElementWidth("200px", "0px", "0px")); // 200
+
+console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+
+profile.changeUsername("Marco");
+console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+profile.updatePlayTime(20);
+console.log(profile.getInfo()); // "Marco has 320 active hours!"
